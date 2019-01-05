@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
   <head>
 
@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?=config::get_title()?></title>
-
+    <title><?=\Core::$config->HTMLtemplate->get_title()?></title>
+	<link rel="icon" href="data:,">
     <!-- Bootstrap core CSS-->
     <link href="/themesbadmin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -25,14 +25,14 @@
     <link href="/css/debug.css" rel="stylesheet">
 
     <script src="/themesbadmin/vendor/jquery/jquery.min.js"></script>
-	<?=config::get_css()?>
-	<?=config::get_script()?>
+	<?=\Core::$config->HTMLtemplate->get_css()?>
+	<?=\Core::$config->HTMLtemplate->get_script()?>
 	
   </head>
 
   <body id="page-top">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
 <?php
 	if (\Core::$config->HTMLtemplate->hasMenu())
 	{
@@ -43,10 +43,43 @@
 <?php
 	}
 ?>
-      <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 
-      </form>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+      <!-- Navbar Search -->
+      <form action="/Produit/fiche" method="POST" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 " clasqs="mr-md-3 my-2 my-md-2">
+        <div class="input-group">
+          <input type="text" name="productId" class="form-control form-control-sm" placeholder="Id Produit" aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary btn-sm" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+	</form>
+  </div>
+
 
 <?php
 	if (\Auth::is_connected())
@@ -78,6 +111,7 @@
 		echo \Core::$config->HTMLtemplate->getMenu();
 	}
 	?>
+	
       <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -117,7 +151,7 @@
       </div>
     </div>
 
-	<div id="underfooter"><?= \config::get_debug();?></div>
+	<div id="underfooter"><?= \DEBUG::print_debug();?></div>
 	
     <!-- Bootstrap core JavaScript-->
     <script src="/themesbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
