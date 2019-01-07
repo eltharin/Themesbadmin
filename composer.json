@@ -1,0 +1,12 @@
+{
+    "name": "eltharin/themesbadmin",
+	"extra": {
+        "installer-name": "Themesbadmin"
+    },
+    "description": "themesbadmin module",
+    "keywords": ["Whookshii", "PHP", "Web", "Plugin"],
+    "license": "GPL-3.0",
+    "type": "whookshii-plugin",
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
