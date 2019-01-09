@@ -25,6 +25,8 @@
     <link href="/css/debug.css" rel="stylesheet">
 
     <script src="/themesbadmin/vendor/jquery/jquery.min.js"></script>
+    <script src="/themesbadmin/vendor/jquery-ui/jquery-ui.min.js"></script>
+      <link href="/themesbadmin/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 	<?=\Core::$config->HTMLtemplate->get_css()?>
 	<?=\Core::$config->HTMLtemplate->get_script()?>
 	
@@ -121,6 +123,7 @@
         </div>
         <!-- /.container-fluid -->
 
+		
       </div>
       <!-- /.content-wrapper -->
 
@@ -150,6 +153,7 @@
         </div>
       </div>
     </div>
+	
 
 	<div id="underfooter"><?= \Debug::print_debug();?></div>
 	
@@ -161,7 +165,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/themesbadmin/js/sb-admin.min.js"></script>
+
 	<div id="ohsnap"></div><div id="popupwindow"></div>
+
   </body>
 
 </html>
