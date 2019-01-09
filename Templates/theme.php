@@ -151,7 +151,7 @@
       </div>
     </div>
 
-	<div id="underfooter"><?= \DEBUG::print_debug();?></div>
+	<div id="underfooter"><?= \Debug::print_debug();?></div>
 	
     <!-- Bootstrap core JavaScript-->
     <script src="/themesbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
